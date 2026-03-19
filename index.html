@@ -1,35 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Sharath Gowda Nati Koli Farm</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sharath Gowda Nati Koli Farm</title>
+
     <style>
         body {
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             margin: 0;
-            text-align: center;
             background: #f5f5f5;
+            text-align: center;
         }
+
         header {
             background: #2e7d32;
             color: white;
             padding: 20px;
         }
-        section {
-            padding: 20px;
+
+        h1 {
+            margin: 0;
         }
+
+        section {
+            padding: 30px 20px;
+        }
+
+        .products p {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+
+        .gallery {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 280px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
         .btn {
             background: #25D366;
             color: white;
-            padding: 15px 20px;
+            padding: 15px 25px;
             text-decoration: none;
             font-size: 18px;
             border-radius: 8px;
+            display: inline-block;
+            margin-top: 20px;
         }
-        img {
-            width: 90%;
-            max-width: 400px;
-            border-radius: 10px;
+
+        footer {
+            background: #333;
+            color: white;
+            padding: 15px;
+            margin-top: 30px;
         }
     </style>
 </head>
@@ -44,28 +75,46 @@
 <section>
     <h2>About Us</h2>
     <p>
-        We provide healthy, naturally raised Nati Koli chickens and fresh eggs.
-        Our farm follows traditional and organic farming practices.
+        We provide healthy, naturally raised Nati Koli chickens and farm fresh eggs.
+        Our farm follows traditional and organic farming methods to ensure quality and taste.
     </p>
 </section>
 
-<section>
+<section class="products">
     <h2>Our Products</h2>
     <p>🐔 Nati Koli Chicken</p>
     <p>🥚 Farm Fresh Eggs</p>
 </section>
 
 <section>
-    <h2>Contact</h2>
+    <h2>Our Farm</h2>
+
+    <div class="gallery">
+        <img src="chicken.jpg" alt="Nati Koli Chicken">
+        <img src="egg.jpg" alt="Farm Fresh Eggs">
+    </div>
+</section>
+
+<section>
+    <h2>Why Choose Us?</h2>
+    <p>✔ Natural farming</p>
+    <p>✔ No chemicals</p>
+    <p>✔ Fresh daily supply</p>
+</section>
+
+<section>
+    <h2>Contact Us</h2>
     <p>📍 Channapatna, Karnataka</p>
     <p>🕒 6:00 AM – 7:00 PM</p>
 
-    <br>
-
-    <a class="btn" href="https://wa.me/919844159777">
+    <a class="btn" href="https://wa.me/919844159777?text=Hi%20I%20want%20to%20buy%20Nati%20Koli%20Chicken">
         Order Now on WhatsApp
     </a>
 </section>
+
+<footer>
+    <p>© 2026 Sharath Gowda Nati Koli Farm</p>
+</footer>
 
 </body>
 </html>
