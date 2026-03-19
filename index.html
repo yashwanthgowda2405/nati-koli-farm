@@ -12,6 +12,7 @@ body {
     background: #f9f9f9;
 }
 
+/* HERO */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
     url('chicken.jpg') center/cover;
@@ -24,15 +25,26 @@ body {
     font-size: 40px;
 }
 
-.hero p {
-    font-size: 18px;
+/* BUTTONS */
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    margin: 10px;
 }
 
+.whatsapp { background: #25D366; }
+.call { background: #2196F3; }
+
+/* SECTION */
 section {
     padding: 40px 20px;
     text-align: center;
 }
 
+/* CARDS */
 .cards {
     display: flex;
     gap: 20px;
@@ -46,6 +58,11 @@ section {
     width: 260px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
 .card img {
@@ -53,23 +70,29 @@ section {
     border-radius: 10px;
 }
 
-.btn {
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    margin: 10px;
+/* SLIDER */
+.slider {
+    width: 100%;
+    overflow: hidden;
 }
 
-.whatsapp {
-    background: #25D366;
+.slider img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 }
 
-.call {
-    background: #2196F3;
+/* REVIEWS */
+.review {
+    background: white;
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
+/* MAP */
 iframe {
     width: 100%;
     height: 300px;
@@ -77,6 +100,20 @@ iframe {
     border-radius: 10px;
 }
 
+/* FLOAT BUTTON */
+.float-whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+/* FOOTER */
 footer {
     background: #222;
     color: white;
@@ -92,22 +129,16 @@ footer {
     <h1>🐔 Sharath Gowda Nati Koli Farm</h1>
     <p>Fresh Country Chicken & Farm Eggs</p>
 
-    <a class="btn whatsapp" href="https://wa.me/919844159777">
-        Order on WhatsApp
-    </a>
-
-    <a class="btn call" href="tel:9844159777">
-        Call Now
-    </a>
+    <a class="btn whatsapp" href="https://wa.me/919844159777">Order on WhatsApp</a>
+    <a class="btn call" href="tel:9844159777">Call Now</a>
 </div>
 
-<!-- ABOUT -->
+<!-- SLIDER -->
 <section>
-    <h2>About Us</h2>
-    <p>
-        We provide naturally raised Nati Koli chickens and farm fresh eggs.
-        Our farming is chemical-free and traditional.
-    </p>
+    <h2>Our Farm</h2>
+    <div class="slider">
+        <img id="slide" src="chicken.jpg">
+    </div>
 </section>
 
 <!-- PRODUCTS -->
@@ -127,12 +158,13 @@ footer {
     </div>
 </section>
 
-<!-- WHY -->
+<!-- REVIEWS -->
 <section>
-    <h2>Why Choose Us</h2>
-    <p>✔ Natural farming</p>
-    <p>✔ No chemicals</p>
-    <p>✔ Healthy & fresh</p>
+    <h2>Customer Reviews</h2>
+
+    <div class="review">⭐️⭐️⭐️⭐️⭐️ Very fresh and tasty chicken!</div>
+    <div class="review">⭐️⭐️⭐️⭐️ Good quality eggs, highly recommended</div>
+    <div class="review">⭐️⭐️⭐️⭐️⭐️ Best farm in Channapatna</div>
 </section>
 
 <!-- CONTACT -->
@@ -142,13 +174,33 @@ footer {
     <p>🕒 6 AM – 7 PM</p>
 
     <a class="btn call" href="https://maps.app.goo.gl/1yTHwHUjsr8y3JKd8?g_st=ic">
-        View Location on Google Maps
+        View Location
     </a>
 </section>
 
+<!-- MAP -->
+<section>
+    <iframe src="https://maps.google.com/maps?q=channapatna&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<!-- FLOAT BUTTON -->
+<a class="float-whatsapp" href="https://wa.me/919844159777">💬</a>
+
+<!-- FOOTER -->
 <footer>
     <p>© 2026 Sharath Gowda Nati Koli Farm</p>
 </footer>
+
+<!-- JS SLIDER -->
+<script>
+let images = ["chicken.jpg", "egg.jpg"];
+let i = 0;
+
+setInterval(() => {
+    i = (i + 1) % images.length;
+    document.getElementById("slide").src = images[i];
+}, 3000);
+</script>
 
 </body>
 </html>
