@@ -12,6 +12,24 @@ body {
     background: #f9f9f9;
 }
 
+/* NAVBAR */
+nav {
+    position: sticky;
+    top: 0;
+    background: #2e7d32;
+    padding: 10px;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 /* HERO */
 .hero {
     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
@@ -21,11 +39,6 @@ body {
     text-align: center;
 }
 
-.hero h1 {
-    font-size: 40px;
-}
-
-/* BUTTONS */
 .btn {
     padding: 12px 20px;
     border-radius: 8px;
@@ -58,7 +71,7 @@ section {
     width: 260px;
     padding: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    transition: 0.3s;
 }
 
 .card:hover {
@@ -70,16 +83,27 @@ section {
     border-radius: 10px;
 }
 
-/* SLIDER */
-.slider {
-    width: 100%;
-    overflow: hidden;
+/* FORM */
+form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.slider img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
+input, textarea {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
 }
 
 /* REVIEWS */
@@ -89,18 +113,9 @@ section {
     max-width: 400px;
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-/* MAP */
-iframe {
-    width: 100%;
-    height: 300px;
-    border: none;
-    border-radius: 10px;
-}
-
-/* FLOAT BUTTON */
+/* FLOAT */
 .float-whatsapp {
     position: fixed;
     bottom: 20px;
@@ -109,7 +124,6 @@ iframe {
     color: white;
     padding: 15px;
     border-radius: 50%;
-    font-size: 20px;
     text-decoration: none;
 }
 
@@ -124,25 +138,33 @@ footer {
 
 <body>
 
+<!-- NAVBAR -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#products">Products</a>
+    <a href="#order">Order</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
     <h1>🐔 Sharath Gowda Nati Koli Farm</h1>
     <p>Fresh Country Chicken & Farm Eggs</p>
 
-    <a class="btn whatsapp" href="https://wa.me/919844159777">Order on WhatsApp</a>
+    <a class="btn whatsapp" href="https://wa.me/919844159777">Order Now</a>
     <a class="btn call" href="tel:9844159777">Call Now</a>
 </div>
 
-<!-- SLIDER -->
+<!-- TRUST -->
 <section>
-    <h2>Our Farm</h2>
-    <div class="slider">
-        <img id="slide" src="chicken.jpg">
-    </div>
+    <h2>Why Choose Us</h2>
+    <p>✔ Natural farming</p>
+    <p>✔ No chemicals</p>
+    <p>✔ Fresh & healthy</p>
 </section>
 
 <!-- PRODUCTS -->
-<section>
+<section id="products">
     <h2>Our Products</h2>
 
     <div class="cards">
@@ -158,29 +180,33 @@ footer {
     </div>
 </section>
 
+<!-- ORDER FORM -->
+<section id="order">
+    <h2>Place Your Order</h2>
+
+    <form action="https://formspree.io/f/mnqeqvzg" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="order" placeholder="What do you want to order?" required></textarea>
+        <button type="submit">Submit Order</button>
+    </form>
+</section>
+
 <!-- REVIEWS -->
 <section>
     <h2>Customer Reviews</h2>
-
-    <div class="review">⭐️⭐️⭐️⭐️⭐️ Very fresh and tasty chicken!</div>
-    <div class="review">⭐️⭐️⭐️⭐️ Good quality eggs, highly recommended</div>
-    <div class="review">⭐️⭐️⭐️⭐️⭐️ Best farm in Channapatna</div>
+    <div class="review">⭐️⭐️⭐️⭐️⭐️ Very fresh chicken!</div>
+    <div class="review">⭐️⭐️⭐️⭐️ Good eggs quality</div>
 </section>
 
 <!-- CONTACT -->
-<section>
+<section id="contact">
     <h2>Contact</h2>
     <p>📍 Channapatna, Karnataka</p>
-    <p>🕒 6 AM – 7 PM</p>
 
     <a class="btn call" href="https://maps.app.goo.gl/1yTHwHUjsr8y3JKd8?g_st=ic">
         View Location
     </a>
-</section>
-
-<!-- MAP -->
-<section>
-    <iframe src="https://maps.google.com/maps?q=channapatna&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
 </section>
 
 <!-- FLOAT BUTTON -->
@@ -190,17 +216,6 @@ footer {
 <footer>
     <p>© 2026 Sharath Gowda Nati Koli Farm</p>
 </footer>
-
-<!-- JS SLIDER -->
-<script>
-let images = ["chicken.jpg", "egg.jpg"];
-let i = 0;
-
-setInterval(() => {
-    i = (i + 1) % images.length;
-    document.getElementById("slide").src = images[i];
-}, 3000);
-</script>
 
 </body>
 </html>
