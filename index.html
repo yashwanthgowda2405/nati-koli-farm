@@ -35,6 +35,13 @@ nav {
     justify-content: space-between;
     padding: 15px 30px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
+}
+
+nav a {
+    text-decoration: none;
+    margin-left: 20px;
+    color: var(--text);
 }
 
 .toggle {
@@ -43,15 +50,14 @@ nav {
 
 /* HERO */
 .hero {
-    padding: 80px 20px;
+    padding: 90px 20px;
     text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url('chicken.jpg') center/cover;
+    color: white;
 }
 
-.hero h1 {
-    font-size: 40px;
-}
-
-/* BUTTON */
+/* BUTTONS */
 .btn {
     padding: 12px 25px;
     border-radius: 8px;
@@ -60,15 +66,13 @@ nav {
     display: inline-block;
 }
 
-.primary {
-    background: #2e7d32;
-    color: white;
-}
+.primary { background: #2e7d32; color: white; }
+.secondary { border: 2px solid #fff; color: white; }
 
 /* SECTION */
 section {
     padding: 60px 20px;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: auto;
 }
 
@@ -94,12 +98,37 @@ section {
     opacity: 1;
 }
 
-.card img {
-    width: 100%;
+.card img { width: 100%; }
+
+/* FORM */
+form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.card h3 {
+input, textarea {
     padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background: #2e7d32;
+    color: white;
+    padding: 12px;
+    border: none;
+}
+
+/* REVIEW */
+.review {
+    background: var(--card);
+    margin: 10px auto;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 /* FLOAT */
@@ -128,8 +157,11 @@ footer {
 
 <!-- NAV -->
 <nav>
-    <h2>🐔 Nati Koli Farm</h2>
+    <h3>🐔 Nati Koli Farm</h3>
     <div>
+        <a href="#products">Products</a>
+        <a href="#order">Order</a>
+        <a href="#contact">Contact</a>
         <span class="toggle" onclick="toggleMode()">🌙</span>
     </div>
 </nav>
@@ -140,10 +172,11 @@ footer {
     <p>Healthy • Natural • Direct from Farm</p>
 
     <a class="btn primary" href="https://wa.me/919844159777">Order Now</a>
+    <a class="btn secondary" href="https://maps.app.goo.gl/1yTHwHUjsr8y3JKd8?g_st=ic">Visit Farm</a>
 </div>
 
 <!-- PRODUCTS -->
-<section>
+<section id="products">
     <h2>Our Products</h2>
 
     <div class="cards">
@@ -159,8 +192,35 @@ footer {
     </div>
 </section>
 
-<!-- CONTACT -->
+<!-- TRUST -->
 <section>
+    <h2>Why Choose Us</h2>
+    <p>✔ Natural farming</p>
+    <p>✔ No chemicals</p>
+    <p>✔ Fresh daily supply</p>
+</section>
+
+<!-- ORDER -->
+<section id="order">
+    <h2>Place Your Order</h2>
+
+    <form action="https://formspree.io/f/mnqeqvzg" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <textarea name="order" placeholder="Your Order" required></textarea>
+        <button type="submit">Submit Order</button>
+    </form>
+</section>
+
+<!-- REVIEWS -->
+<section>
+    <h2>Customer Reviews</h2>
+    <div class="review">⭐️⭐️⭐️⭐️⭐️ Very fresh chicken!</div>
+    <div class="review">⭐️⭐️⭐️⭐️ Good eggs quality</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
     <h2>Visit Us</h2>
     <p>📍 Channapatna, Karnataka</p>
 
@@ -169,7 +229,6 @@ footer {
     </a>
 </section>
 
-<!-- FLOAT -->
 <a class="float" href="https://wa.me/919844159777">💬</a>
 
 <footer>
@@ -177,18 +236,14 @@ footer {
 </footer>
 
 <script>
-/* DARK MODE */
 function toggleMode() {
     document.body.classList.toggle("dark");
 }
 
-/* SCROLL ANIMATION */
 const cards = document.querySelectorAll(".card");
-
 window.addEventListener("scroll", () => {
     cards.forEach(card => {
-        const top = card.getBoundingClientRect().top;
-        if(top < window.innerHeight - 50) {
+        if(card.getBoundingClientRect().top < window.innerHeight - 50){
             card.classList.add("show");
         }
     });
