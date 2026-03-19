@@ -6,117 +6,104 @@
 <title>Sharath Gowda Nati Koli Farm</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
+:root {
+    --bg: #ffffff;
+    --text: #333;
+    --card: #ffffff;
 }
 
-/* NAVBAR */
+.dark {
+    --bg: #121212;
+    --text: #f5f5f5;
+    --card: #1e1e1e;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    transition: 0.3s;
+}
+
+/* NAV */
 nav {
     position: sticky;
     top: 0;
-    background: #2e7d32;
-    padding: 10px;
-    color: white;
+    background: var(--card);
     display: flex;
-    justify-content: space-around;
-    z-index: 1000;
+    justify-content: space-between;
+    padding: 15px 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+.toggle {
+    cursor: pointer;
 }
 
 /* HERO */
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-    url('chicken.jpg') center/cover;
-    color: white;
     padding: 80px 20px;
     text-align: center;
 }
 
-.btn {
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    color: white;
-    display: inline-block;
-    margin: 10px;
+.hero h1 {
+    font-size: 40px;
 }
 
-.whatsapp { background: #25D366; }
-.call { background: #2196F3; }
+/* BUTTON */
+.btn {
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 10px;
+    display: inline-block;
+}
+
+.primary {
+    background: #2e7d32;
+    color: white;
+}
 
 /* SECTION */
 section {
-    padding: 40px 20px;
-    text-align: center;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
 }
 
 /* CARDS */
 .cards {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
 }
 
 .card {
-    background: white;
+    background: var(--card);
     border-radius: 12px;
-    width: 260px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.6s;
 }
 
-.card:hover {
-    transform: scale(1.05);
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .card img {
     width: 100%;
-    border-radius: 10px;
 }
 
-/* FORM */
-form {
-    max-width: 400px;
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-input, textarea {
+.card h3 {
     padding: 10px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background: #2e7d32;
-    color: white;
-    padding: 12px;
-    border: none;
-    border-radius: 6px;
-}
-
-/* REVIEWS */
-.review {
-    background: white;
-    margin: 10px auto;
-    max-width: 400px;
-    padding: 15px;
-    border-radius: 10px;
 }
 
 /* FLOAT */
-.float-whatsapp {
+.float {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -129,42 +116,34 @@ button {
 
 /* FOOTER */
 footer {
-    background: #222;
+    text-align: center;
+    padding: 30px;
+    background: #111;
     color: white;
-    padding: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- NAV -->
 <nav>
-    <a href="#">Home</a>
-    <a href="#products">Products</a>
-    <a href="#order">Order</a>
-    <a href="#contact">Contact</a>
+    <h2>🐔 Nati Koli Farm</h2>
+    <div>
+        <span class="toggle" onclick="toggleMode()">🌙</span>
+    </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
-    <h1>🐔 Sharath Gowda Nati Koli Farm</h1>
-    <p>Fresh Country Chicken & Farm Eggs</p>
+    <h1>Fresh Country Chicken & Eggs</h1>
+    <p>Healthy • Natural • Direct from Farm</p>
 
-    <a class="btn whatsapp" href="https://wa.me/919844159777">Order Now</a>
-    <a class="btn call" href="tel:9844159777">Call Now</a>
+    <a class="btn primary" href="https://wa.me/919844159777">Order Now</a>
 </div>
 
-<!-- TRUST -->
-<section>
-    <h2>Why Choose Us</h2>
-    <p>✔ Natural farming</p>
-    <p>✔ No chemicals</p>
-    <p>✔ Fresh & healthy</p>
-</section>
-
 <!-- PRODUCTS -->
-<section id="products">
+<section>
     <h2>Our Products</h2>
 
     <div class="cards">
@@ -180,42 +159,41 @@ footer {
     </div>
 </section>
 
-<!-- ORDER FORM -->
-<section id="order">
-    <h2>Place Your Order</h2>
-
-    <form action="https://formspree.io/f/mnqeqvzg" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <textarea name="order" placeholder="What do you want to order?" required></textarea>
-        <button type="submit">Submit Order</button>
-    </form>
-</section>
-
-<!-- REVIEWS -->
-<section>
-    <h2>Customer Reviews</h2>
-    <div class="review">⭐️⭐️⭐️⭐️⭐️ Very fresh chicken!</div>
-    <div class="review">⭐️⭐️⭐️⭐️ Good eggs quality</div>
-</section>
-
 <!-- CONTACT -->
-<section id="contact">
-    <h2>Contact</h2>
+<section>
+    <h2>Visit Us</h2>
     <p>📍 Channapatna, Karnataka</p>
 
-    <a class="btn call" href="https://maps.app.goo.gl/1yTHwHUjsr8y3JKd8?g_st=ic">
+    <a class="btn primary" href="https://maps.app.goo.gl/1yTHwHUjsr8y3JKd8?g_st=ic">
         View Location
     </a>
 </section>
 
-<!-- FLOAT BUTTON -->
-<a class="float-whatsapp" href="https://wa.me/919844159777">💬</a>
+<!-- FLOAT -->
+<a class="float" href="https://wa.me/919844159777">💬</a>
 
-<!-- FOOTER -->
 <footer>
     <p>© 2026 Sharath Gowda Nati Koli Farm</p>
 </footer>
+
+<script>
+/* DARK MODE */
+function toggleMode() {
+    document.body.classList.toggle("dark");
+}
+
+/* SCROLL ANIMATION */
+const cards = document.querySelectorAll(".card");
+
+window.addEventListener("scroll", () => {
+    cards.forEach(card => {
+        const top = card.getBoundingClientRect().top;
+        if(top < window.innerHeight - 50) {
+            card.classList.add("show");
+        }
+    });
+});
+</script>
 
 </body>
 </html>
