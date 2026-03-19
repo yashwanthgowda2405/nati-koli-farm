@@ -1,117 +1,169 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sharath Gowda Nati Koli Farm</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharath Gowda Nati Koli Farm</title>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            background: #f5f5f5;
-            text-align: center;
-        }
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+}
 
-        header {
-            background: #2e7d32;
-            color: white;
-            padding: 20px;
-        }
+/* HERO */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url('chicken.jpg') center/cover;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
 
-        h1 {
-            margin: 0;
-        }
+.hero h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
 
-        section {
-            padding: 30px 20px;
-        }
+.hero p {
+    font-size: 18px;
+}
 
-        .products p {
-            font-size: 18px;
-            margin: 5px 0;
-        }
+/* SECTION */
+section {
+    padding: 40px 20px;
+    text-align: center;
+}
 
-        .gallery {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+/* CARDS */
+.cards {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .gallery img {
-            width: 280px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+.card {
+    background: white;
+    border-radius: 12px;
+    width: 260px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-        .btn {
-            background: #25D366;
-            color: white;
-            padding: 15px 25px;
-            text-decoration: none;
-            font-size: 18px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 20px;
-        }
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
 
-        footer {
-            background: #333;
-            color: white;
-            padding: 15px;
-            margin-top: 30px;
-        }
-    </style>
+/* BUTTONS */
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    display: inline-block;
+    margin: 10px;
+}
+
+.whatsapp {
+    background: #25D366;
+}
+
+.call {
+    background: #2196F3;
+}
+
+/* PRICE */
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+}
+
+/* MAP */
+iframe {
+    width: 100%;
+    height: 300px;
+    border: none;
+    border-radius: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: #222;
+    color: white;
+    padding: 20px;
+}
+</style>
 </head>
 
 <body>
 
-<header>
+<!-- HERO -->
+<div class="hero">
     <h1>🐔 Sharath Gowda Nati Koli Farm</h1>
     <p>Fresh Country Chicken & Farm Eggs</p>
-</header>
 
+    <a class="btn whatsapp" href="https://wa.me/919844159777">Order on WhatsApp</a>
+    <a class="btn call" href="tel:9844159777">Call Now</a>
+</div>
+
+<!-- ABOUT -->
 <section>
     <h2>About Us</h2>
     <p>
-        We provide healthy, naturally raised Nati Koli chickens and farm fresh eggs.
-        Our farm follows traditional and organic farming methods to ensure quality and taste.
+        We provide naturally raised Nati Koli chickens and farm fresh eggs.
+        Our farming is chemical-free and traditional.
     </p>
 </section>
 
-<section class="products">
-    <h2>Our Products</h2>
-    <p>🐔 Nati Koli Chicken</p>
-    <p>🥚 Farm Fresh Eggs</p>
-</section>
-
+<!-- PRODUCTS -->
 <section>
-    <h2>Our Farm</h2>
+    <h2>Our Products</h2>
 
-    <div class="gallery">
-        <img src="chicken.jpg" alt="Nati Koli Chicken">
-        <img src="egg.jpg" alt="Farm Fresh Eggs">
+    <div class="cards">
+
+        <div class="card">
+            <img src="chicken.jpg">
+            <h3>Nati Koli Chicken</h3>
+            <p class="price">₹ --- / Kg</p>
+        </div>
+
+        <div class="card">
+            <img src="egg.jpg">
+            <h3>Farm Fresh Eggs</h3>
+            <p class="price">₹ --- / Dozen</p>
+        </div>
+
     </div>
 </section>
 
+<!-- WHY -->
 <section>
-    <h2>Why Choose Us?</h2>
+    <h2>Why Choose Us</h2>
     <p>✔ Natural farming</p>
     <p>✔ No chemicals</p>
-    <p>✔ Fresh daily supply</p>
+    <p>✔ Healthy & fresh</p>
 </section>
 
+<!-- CONTACT -->
 <section>
-    <h2>Contact Us</h2>
+    <h2>Contact</h2>
     <p>📍 Channapatna, Karnataka</p>
-    <p>🕒 6:00 AM – 7:00 PM</p>
-
-    <a class="btn" href="https://wa.me/919844159777?text=Hi%20I%20want%20to%20buy%20Nati%20Koli%20Chicken">
-        Order Now on WhatsApp
-    </a>
+    <p>🕒 6 AM – 7 PM</p>
 </section>
 
+<!-- MAP -->
+<section>
+    <h2>Our Location</h2>
+
+    <iframe src="https://maps.google.com/maps?q=channapatna&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+
+</section>
+
+<!-- FOOTER -->
 <footer>
     <p>© 2026 Sharath Gowda Nati Koli Farm</p>
 </footer>
