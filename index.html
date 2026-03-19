@@ -110,16 +110,17 @@ form {
 }
 
 input, textarea {
-    padding: 10px;
+    padding: 12px;
     border-radius: 6px;
     border: 1px solid #ccc;
 }
 
 button {
-    background: #2e7d32;
+    background: #25D366;
     color: white;
     padding: 12px;
     border: none;
+    border-radius: 6px;
 }
 
 /* REVIEW */
@@ -204,11 +205,11 @@ footer {
 <section id="order">
     <h2>Place Your Order</h2>
 
-    <form action="https://formspree.io/f/mnqeqvzg" method="POST">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <textarea name="order" placeholder="Your Order" required></textarea>
-        <button type="submit">Submit Order</button>
+    <form onsubmit="sendWhatsApp(); return false;">
+        <input id="name" placeholder="Your Name" required>
+        <input id="phone" placeholder="Phone Number" required>
+        <textarea id="orderText" placeholder="Example: 2kg chicken, 12 eggs" required></textarea>
+        <button type="submit">Send Order on WhatsApp</button>
     </form>
 </section>
 
@@ -229,6 +230,7 @@ footer {
     </a>
 </section>
 
+<!-- FLOAT BUTTON -->
 <a class="float" href="https://wa.me/919844159777">💬</a>
 
 <footer>
@@ -238,6 +240,21 @@ footer {
 <script>
 function toggleMode() {
     document.body.classList.toggle("dark");
+}
+
+function sendWhatsApp() {
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let order = document.getElementById("orderText").value;
+
+    let message =
+        "🐔 *New Order Request* %0A%0A" +
+        "👤 Name: " + name + "%0A" +
+        "📞 Phone: " + phone + "%0A" +
+        "📦 Order: " + order;
+
+    let url = "https://wa.me/919844159777?text=" + message;
+    window.open(url, "_blank");
 }
 
 const cards = document.querySelectorAll(".card");
